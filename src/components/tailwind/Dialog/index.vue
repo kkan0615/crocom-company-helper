@@ -39,7 +39,6 @@ export default defineComponent({
     const close = () => {
       emit('update:modelValue', false)
       emit('close', false)
-      console.log('test')
     }
 
     const onClickOutSide = () => {

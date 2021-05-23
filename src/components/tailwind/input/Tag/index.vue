@@ -187,7 +187,6 @@ export default defineComponent({
 
         const index = props.modelValue.findIndex((element: any) => element[itemValue] === item[itemValue])
         if (index >= 0) {
-          console.log(modelValue.indexOf(item))
           modelValue.splice(modelValue.indexOf(item), 1)
           emit('update:modelValue', modelValue)
         }
@@ -202,7 +201,6 @@ export default defineComponent({
 
       const itemText = props.itemText as string
       const found = items.find((item: any) => itemText ? item[itemText] === innerSearch.value : item === innerSearch.value)
-      console.log(found)
       if (!found) {
 
         const newTag = {

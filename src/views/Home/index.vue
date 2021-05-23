@@ -19,7 +19,6 @@ export default defineComponent({
     const router = useRouter()
 
     const onClickTest = () => {
-      console.log(router)
       router.push({ name: 'Playground' })
     }
 

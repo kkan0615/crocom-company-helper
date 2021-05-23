@@ -10,7 +10,6 @@ export const downloadFileInHTML = async (file: CustomFile, title = file.name) =>
   document.body.appendChild(link)
   link.click()
   link.remove()
-  console.log('done')
 }
 
 export const downloadFileInHTMLWithBlob = async (blob: Blob, title: string, extension: string) => {
@@ -21,5 +20,4 @@ export const downloadFileInHTMLWithBlob = async (blob: Blob, title: string, exte
   document.body.appendChild(link)
   link.click()
   link.remove()
-  console.log('done')
 }

@@ -66,7 +66,6 @@ export default defineComponent({
     }
 
     const onErrorImage = () => {
-      console.log('error!')
       errorStatus.value = true
     }
 

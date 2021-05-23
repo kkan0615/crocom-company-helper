@@ -34,7 +34,6 @@ export const menuActions: ActionTree<MenuState, RootState> & MenuActions = {
   [MenuActionTypes.LOAD_GENERAL_ROUTES] ({ commit }) {
     /* Set general routes */
     const generalRoute = (routes.find(route => route.name === 'GeneralLayout')  || {}) as RouteRecordRaw
-    console.log(generalRoute.children)
     commit(MenuMutationTypes.SET_GENERAL_ROUTES, generalRoute.children)
   },
 }

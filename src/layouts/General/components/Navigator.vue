@@ -59,7 +59,6 @@ export default defineComponent({
     })
 
     const onClickMenu = async (clickedRoute: RouteRecordRaw) => {
-      console.log(clickedRoute)
       await router.push({ name: clickedRoute.name })
     }
 

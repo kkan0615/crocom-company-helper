@@ -8,7 +8,7 @@
       </t-material-icon>
     </t-button>
     <my-info-general-layout
-      class="ml-auto"
+      class="ml-auto mr-2"
     />
   </t-appbar>
 </template>

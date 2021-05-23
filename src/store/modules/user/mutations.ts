@@ -13,6 +13,5 @@ export const userMutations: MutationTree<UserState> & UserMutations = {
     //@TODO: 합칠수 있는법 생각하기
     state.id = payload.id
     state.name = payload.name
-    console.log('I am in mutiation', state)
   },
 }

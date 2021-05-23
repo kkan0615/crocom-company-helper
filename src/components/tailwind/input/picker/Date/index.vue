@@ -59,7 +59,6 @@ export default defineComponent({
     }
 
     const onUpdateModelValueInCalendar = (date: any) => {
-      console.log('date', date)
 
       emit('update:modelValue', dayjs(date).format('YYYY-MM-DD'))
       isOpenCalendar.value = false
