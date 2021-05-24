@@ -1,5 +1,6 @@
 <template>
   <span
+    class="align-middle"
     :class="classes"
   >
     <slot />
