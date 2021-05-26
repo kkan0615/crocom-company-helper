@@ -1,5 +1,10 @@
 <template>
   <div>
+    <t-button
+      @click="onClickTestButton"
+    >
+      test
+    </t-button>
     <t-list>
       <t-list-item>
         <t-list-item-avatar />
@@ -30,13 +35,6 @@
         </t-list-item>
       </t-list>
     </t-toast>
-    <t-toast
-      status="danger"
-    >
-      <div>
-        danger
-      </div>
-    </t-toast>
   </div>
 </template>
 
@@ -49,13 +47,24 @@ import TListItemContent from '@/components/tailwind/List/components/itemContent.
 import TListItemContentTittle from '@/components/tailwind/List/components/itemContentTittle.vue'
 import TListItemContentSubTittle from '@/components/tailwind/List/components/itemContentSubTitle.vue'
 import TToast from '@/components/tailwind/Toast/index.vue'
+import TButton from '@/components/tailwind/Button/index.vue'
+import useSnackbarPlugin from '@/plugins/snackbar'
 
 export default defineComponent({
   name: 'Playground',
-  components: { TToast, TListItemContentSubTittle, TListItemContentTittle, TListItemContent, TListItemAvatar, TListItem, TList },
+  components: { TButton, TToast, TListItemContentSubTittle, TListItemContentTittle, TListItemContent, TListItemAvatar, TListItem, TList },
   setup () {
+    const { showSnackbar } = useSnackbarPlugin()
+
+    const onClickTestButton = () => {
+      showSnackbar({
+        content: 'Test message',
+        status: 'info'
+      })
+    }
 
     return {
+      onClickTestButton,
     }
   }
 })

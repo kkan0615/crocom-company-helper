@@ -2,6 +2,7 @@ import { ActionContext, ActionTree } from 'vuex'
 import { ApplicationMutations, ApplicationMutationTypes } from './mutations'
 import { ApplicationState } from './state'
 import { RootState } from '@/store'
+import { SnackbarOption } from '@/interfaces/system/snackbar'
 
 export enum ApplicationActionTypes {
   CHANGE_NAVIGATOR = 'APPLICATION_CHANGE_NAVIGATOR',
@@ -10,6 +11,8 @@ export enum ApplicationActionTypes {
   SET_SUB_NAVIGATOR = 'APPLICATION_SET_SUB_NAVIGATOR',
   CHANGE_USER_NAVIGATOR = 'APPLICATION_CHANGE_USER_NAVIGATOR',
   SET_USER_NAVIGATOR = 'APPLICATION_SET_USER_NAVIGATOR',
+  SHOW_SNACKBAR = 'APPLICATION_SHOW_SNACKBAR',
+  REMOVE_SNACKBAR = 'APPLICATION_REMOVE_SNACKBAR',
 }
 
 export type AugmentedActionContext = {
@@ -41,6 +44,13 @@ export interface ApplicationActions {
     { commit }: AugmentedActionContext,
     payload: boolean
   ): void
+  [ApplicationActionTypes.SHOW_SNACKBAR](
+    { commit }: AugmentedActionContext,
+    payload: SnackbarOption
+  ): void
+  [ApplicationActionTypes.REMOVE_SNACKBAR](
+    { commit }: AugmentedActionContext,
+  ): void
 }
 
 export const applicationActions: ActionTree<ApplicationState, RootState> & ApplicationActions = {
@@ -61,5 +71,11 @@ export const applicationActions: ActionTree<ApplicationState, RootState> & Appli
   },
   [ApplicationActionTypes.SET_USER_NAVIGATOR] ({ commit }, payload) {
     commit(ApplicationMutationTypes.SET_USER_NAVIGATOR, payload)
+  },
+  [ApplicationActionTypes.SHOW_SNACKBAR] ({ commit }, payload) {
+    commit(ApplicationMutationTypes.SET_SNACKBAR, payload)
+  },
+  [ApplicationActionTypes.REMOVE_SNACKBAR] ({ commit }) {
+    commit(ApplicationMutationTypes.SET_SNACKBAR, {} as SnackbarOption)
   },
 }

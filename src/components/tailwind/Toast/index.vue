@@ -2,6 +2,7 @@
   <div
     class="flex items-center text-white max-w-sm w-full shadow-md rounded-lg overflow-hidden"
     :class="wrapperClasses"
+    style="min-width: 300px"
   >
     <div class="w-10 border-r p-2">
       <t-material-icon
