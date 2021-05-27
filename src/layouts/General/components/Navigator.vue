@@ -21,6 +21,12 @@
         {{ route.meta.icon }}
       </navigator-menu-general-layout>
     </div>
+    <navigator-menu-general-layout
+      class="mt-auto"
+      @click="onClickAdminMenu"
+    >
+      admin_panel_settings
+    </navigator-menu-general-layout>
   </t-small-navigator-layout>
 </template>
 
@@ -62,10 +68,15 @@ export default defineComponent({
       await router.push({ name: clickedRoute.name })
     }
 
+    const onClickAdminMenu = async () => {
+      await router.push({ name: 'AdminLayout' })
+    }
+
     return {
       generalRoutes,
       activingName,
       onClickMenu,
+      onClickAdminMenu,
     }
   }
 })

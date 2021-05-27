@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import GeneralLayout from '@/layouts/General/index.vue'
 import DashboardRoutes from './modules/general/dashboard'
+import AdminRoutes from './modules/admin'
 
 // const generalRouters: Array<RouteRecordRaw> = []
 //
@@ -42,6 +43,7 @@ export const routes: Array<RouteRecordRaw> = [
       ...DashboardRoutes,
     ]
   },
+  AdminRoutes,
 ]
 
 const router = createRouter({

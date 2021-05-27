@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex items-center h-12 px-2 w-full sm:h-12"
+    class="flex flex-col h-full py-4 shadow-lg gap-y-1 overflow-y-auto w-5"
     :class="wrapperClasses"
   >
     <slot />
@@ -11,22 +11,17 @@
 import { computed, defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'TAppbar',
+  name: 'TDrawerNavigatorLayout',
   props: {
     width:{
       required: false,
       type: Number,
-      default: 16,
-    },
-    height:{
-      required: false,
-      type: Number,
-      default: 12,
+      default: 52,
     },
     color:{
       required: false,
       type: String,
-      default: 'app-bar',
+      default: 'navigator',
     },
     textColor:{
       required: false,
@@ -37,8 +32,7 @@ export default defineComponent({
   setup (props) {
     const wrapperClasses = computed(() =>{
       return {
-        // [`w-${props.width}`]: true,
-        [`h-${props.height}`]: true,
+        [`w-${props.width}`]: true,
         [`bg-${props.color}`]: true,
         [`text-${props.textColor}`]: !!props.textColor,
       }
@@ -47,6 +41,7 @@ export default defineComponent({
     return {
       wrapperClasses,
     }
+
   }
 })
 </script>
