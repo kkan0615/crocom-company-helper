@@ -10,35 +10,59 @@
         :value="route"
         @click="onClickMenu(route)"
       >
-        {{ route.meta.icon }}
+        <t-list>
+          <t-list-item>
+            <t-list-item-avatar>
+              <t-material-icon>
+                {{ route.meta.icon }}
+              </t-material-icon>
+            </t-list-item-avatar>
+            <t-list-item-content>
+              <t-list-item-content-tittle>
+                {{ route.name }}
+              </t-list-item-content-tittle>
+            </t-list-item-content>
+          </t-list-item>
+        </t-list>
       </navigator-menu-admin-layout>
     </div>
-    <navigator-menu-admin-layout
-      class="mt-auto"
+    <t-list
+      class="mt-auto px-2"
       @click="onClickExitButton"
     >
-      logout
-      <template
-        #title
-      >
-        Exit
-      </template>
-    </navigator-menu-admin-layout>
+      <t-list-item>
+        <t-list-item-avatar>
+          <t-material-icon>
+            logout
+          </t-material-icon>
+        </t-list-item-avatar>
+        <t-list-item-content>
+          <t-list-item-content-tittle>
+            Exit
+          </t-list-item-content-tittle>
+        </t-list-item-content>
+      </t-list-item>
+    </t-list>
   </t-drawer-navigator-layout>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
-import NavigatorMenuGeneralLayout from '@/layouts/General/components/NavigatorMenu.vue'
 import useStore from '@/store'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import { getParentRoute } from '@/utils/router'
 import TDrawerNavigatorLayout from '@/components/tailwind/layouts/navigators/Drawer/index.vue'
 import NavigatorMenuAdminLayout from '@/layouts/Admin/components/NavigatorMenu.vue'
+import TList from '@/components/tailwind/List/index.vue'
+import TListItem from '@/components/tailwind/List/components/item.vue'
+import TListItemContent from '@/components/tailwind/List/components/itemContent.vue'
+import TListItemAvatar from '@/components/tailwind/List/components/itemAvatar.vue'
+import TListItemContentTittle from '@/components/tailwind/List/components/itemContentTittle.vue'
+import TMaterialIcon from '@/components/tailwind/icon/Material/index.vue'
 
 export default defineComponent({
   name: 'NavigatorAdminLayout',
-  components: { NavigatorMenuAdminLayout, TDrawerNavigatorLayout },
+  components: { TMaterialIcon, TListItemContentTittle, TListItemAvatar, TListItemContent, TListItem, TList, NavigatorMenuAdminLayout, TDrawerNavigatorLayout },
   setup () {
     const store = useStore()
     const route =  useRoute()

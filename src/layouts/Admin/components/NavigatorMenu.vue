@@ -10,38 +10,18 @@
         'text-white': active,
       }"
     >
-      <div>
-        <t-material-icon
-          class="cursor-pointer"
-          @click="onClickIcon"
-        >
-          <slot />
-        </t-material-icon>
-      </div>
-      <div
-        class="text-sm"
-      >
-        <slot
-          name="title"
-        >
-          <span>
-            {{ value.name }}
-          </span>
-        </slot>
-      </div>
+      <slot />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, useContext } from 'vue'
-import TMaterialIcon from '@/components/tailwind/icon/Material/index.vue'
+import { computed, defineComponent, onMounted, useContext } from 'vue'
 import { RouteRecordRaw, useRoute } from 'vue-router'
 import { getParentRoute, getRouteInfo } from '@/utils/router'
 
 export default defineComponent({
   name: 'NavigatorMenuAdminLayout',
-  components: { TMaterialIcon },
   props: {
     value: {
       type: Object,

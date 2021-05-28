@@ -7,7 +7,7 @@
         menu
       </t-material-icon>
     </t-button>
-    <my-info-general-layout
+    <user-dropdown
       class="ml-auto mr-2"
     />
   </t-appbar>
@@ -19,10 +19,11 @@ import TAppbar from '@/components/tailwind/layouts/Appbar/index.vue'
 import TButton from '@/components/tailwind/Button/index.vue'
 import TMaterialIcon from '@/components/tailwind/icon/Material/index.vue'
 import MyInfoGeneralLayout from '@/layouts/General/components/MyInfo.vue'
+import UserDropdown from '@/components/dropdowns/User/index.vue'
 
 export default defineComponent({
   name: 'AppbarGeneralLayout',
-  components: { MyInfoGeneralLayout, TMaterialIcon, TButton, TAppbar },
+  components: { UserDropdown, MyInfoGeneralLayout, TMaterialIcon, TButton, TAppbar },
   setup () {
     return
   }
