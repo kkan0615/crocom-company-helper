@@ -18,7 +18,7 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, useContext } from 'vue'
 import { RouteRecordRaw, useRoute } from 'vue-router'
-import { getParentRoute, getRouteInfo } from '@/utils/router'
+import { getRouteInfo } from '@/utils/router'
 
 export default defineComponent({
   name: 'NavigatorMenuAdminLayout',

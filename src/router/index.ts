@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import GeneralLayout from '@/layouts/General/index.vue'
-import DashboardRoutes from './modules/general/dashboard'
+import dashboardRoutes from './modules/general/dashboard'
 import AdminRoutes from './modules/admin'
 
 // const generalRouters: Array<RouteRecordRaw> = []
@@ -40,7 +40,7 @@ export const routes: Array<RouteRecordRaw> = [
           icon: 'emoji_symbols',
         },
       },
-      ...DashboardRoutes,
+      dashboardRoutes,
     ]
   },
   AdminRoutes,

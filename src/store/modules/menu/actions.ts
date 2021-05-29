@@ -5,11 +5,13 @@ import { MenuState } from '@/store/modules/menu/state'
 import { routes } from '@/router'
 import { RouteRecordRaw } from 'vue-router'
 import adminRoutes from '@/router/modules/admin'
+import dashboardRoutes from '@/router/modules/general/dashboard'
 
 export enum MenuActionTypes {
   LOAD_ALL_ROUTES = 'MENU_LOAD_ALL_ROUTES',
   LOAD_GENERAL_ROUTES = 'MENU_LOAD_GENERAL_ROUTES',
   LOAD_ADMIN_ROUTES = 'MENU_LOAD_ADMIN_ROUTES',
+  LOAD_DASHBOARD_ROUTES = 'MENU_LOAD_DASHBOARD_ROUTES',
 }
 
 export type AugmentedActionContext = {
@@ -29,6 +31,9 @@ export interface MenuActions {
   [MenuActionTypes.LOAD_ADMIN_ROUTES](
     { commit }: AugmentedActionContext,
   ): void
+  [MenuActionTypes.LOAD_DASHBOARD_ROUTES](
+    { commit }: AugmentedActionContext,
+  ): void
 }
 
 export const menuActions: ActionTree<MenuState, RootState> & MenuActions = {
@@ -46,5 +51,8 @@ export const menuActions: ActionTree<MenuState, RootState> & MenuActions = {
   [MenuActionTypes.LOAD_ADMIN_ROUTES] ({ commit }) {
     /* Set general routes */
     commit(MenuMutationTypes.SET_ADMIN_ROUTES, adminRoutes.children)
+  },
+  [MenuActionTypes.LOAD_DASHBOARD_ROUTES] ({ commit }) {
+    commit(MenuMutationTypes.SET_DASHBOARD_ROUTES, dashboardRoutes.children)
   },
 }

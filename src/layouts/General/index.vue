@@ -15,7 +15,7 @@
           class="flex-shrink flex-grow-0"
         />
         <div
-          class="flex-grow p-4"
+          class="flex-grow"
         >
           <router-view
             v-slot="{ Component }"
@@ -34,14 +34,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import NavigatorGeneralLayout from '@/layouts/General/components/Navigator.vue'
 import AppbarGeneralLayout from '@/layouts/General/components/Appbar.vue'
+import { MenuActionTypes } from '@/store/modules/menu/actions'
+import useStore from '@/store'
 
 export default defineComponent({
   name: 'GeneralLayout',
   components: { AppbarGeneralLayout, NavigatorGeneralLayout },
   setup () {
+    const store = useStore()
+
+    onMounted(async () => {
+      if (store)
+        await store.dispatch(MenuActionTypes.LOAD_GENERAL_ROUTES)
+    })
+
     return
   }
 })

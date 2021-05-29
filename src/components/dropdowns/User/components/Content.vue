@@ -20,12 +20,12 @@
       >
         <t-list-item-avatar>
           <t-material-icon>
-            logout
+            person
           </t-material-icon>
         </t-list-item-avatar>
         <t-list-item-content>
           <t-list-item-content-tittle>
-            Logout
+            Profile
           </t-list-item-content-tittle>
         </t-list-item-content>
       </t-list-item>
