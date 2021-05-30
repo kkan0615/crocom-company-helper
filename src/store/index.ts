@@ -10,18 +10,21 @@ import { ApplicationState } from '@/store/modules/application/state'
 import { applicationModule, Store as ApplicationStore } from '@/store/modules/application'
 import { MenuState } from '@/store/modules/menu/state'
 import { menuModule, Store as MenuStore } from '@/store/modules/menu'
+import { AdminViewState } from '@/store/modules/views/admin/state'
+import { adminViewModule, Store as AdminViewStore } from '@/store/modules/views/admin'
 
 export interface RootState {
   user: UserState
   application: ApplicationState
   menu: MenuState
+  adminView: AdminViewState
 }
 
 export type RootStore =
   UserStore<Pick<RootState, 'user'>> &
   ApplicationStore<Pick<RootState, 'application'>> &
-  MenuStore<Pick<RootState, 'menu'>>
-
+  MenuStore<Pick<RootState, 'menu'>> &
+  AdminViewStore<Pick<RootState, 'adminView'>>
 // define injection key
 export const key: InjectionKey<Store<RootState>> = Symbol()
 /* Plugins for store */
@@ -34,6 +37,7 @@ export const store = createStore<RootState>({
     user: userModule,
     application: applicationModule,
     menu: menuModule,
+    adminView: adminViewModule,
   },
 })
 export default function useStore (): RootStore {

@@ -1,4 +1,4 @@
-import { UserInfo } from '@/interfaces/model/User'
+import { UserInfo, UserStatusType } from '@/interfaces/model/User'
 import faker from 'faker'
 import dayjs from 'dayjs'
 import color from 'color'
@@ -21,6 +21,13 @@ export const generateDummyUsers = () => {
       roles: [],
       Department: {} as Department,
       Position: {} as Position,
+      status: 'service',
     } as UserInfo)
   }
+}
+
+export const selectDummyUsers = async (userStatusType: UserStatusType = 'service') => {
+  return dummyUsers.filter(dummyUser => {
+    return dummyUser.status === userStatusType
+  })
 }
