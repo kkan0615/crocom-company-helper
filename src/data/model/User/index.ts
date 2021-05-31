@@ -8,10 +8,12 @@ import { Position } from '@/interfaces/model/Postion'
 export const dummyUsers: Array<UserInfo> = []
 
 export const generateDummyUsers = () => {
+  const name = faker.name.title()
   for (let i = 0; i < 30; i++) {
     dummyUsers.push({
       id: i + 1,
-      name: faker.name.title(),
+      empNo: `${name}i`,
+      name,
       color: '',
       nickname: '',
       img: '',
@@ -22,6 +24,7 @@ export const generateDummyUsers = () => {
       Department: {} as Department,
       Position: {} as Position,
       status: 'service',
+      entryDate: dayjs()
     } as UserInfo)
   }
 }

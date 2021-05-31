@@ -1,5 +1,5 @@
-$min-height-input-box: 1.75rem;
+@import "./variables.scss";
 
 .input-box {
-  min-height: 2rem;
+  min-height: $min-height-input-box;
 }

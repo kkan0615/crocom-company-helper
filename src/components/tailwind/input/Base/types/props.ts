@@ -6,6 +6,7 @@ export interface InputBoxProps {
   label: string
   type: string
   height: number
+  flex: boolean
   noRing: boolean
   clearable: boolean
   maxCount: number
@@ -28,6 +29,11 @@ export const inputBoxProps: ComponentObjectPropsOptions<InputBoxProps> = {
     type: String,
     required: false,
     default: 'text',
+  },
+  flex: {
+    type: Boolean,
+    required: false,
+    default: true,
   },
   noRing: {
     type: Boolean,

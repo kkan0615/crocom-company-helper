@@ -2,82 +2,91 @@
   <div
     class="w-full"
   >
-    <!--  label  -->
-    <label
-      v-if="label"
-    >
-
-      <div
-        class="block text-sm font-medium text-gray-700 font-bold my-1"
-      >
-        <slot
-          name="label"
-        >
-          {{ label }}
-        </slot>
-      </div>
-    </label>
-    <!--  input part  -->
     <div
-      class="flex items-center input-box focus:border-primary-500"
       :class="{
-        [`border-2`]: !noRing && !errorStatus,
-        [`border-red-500`]: errorStatus,
+        'flex': flex && label,
       }"
     >
-      <!--   pre-append   -->
-      <div
-        class="flex-shrink"
+      <!--  label  -->
+      <label
+        v-if="label"
+        :class="{
+          'mr-2': flex && label,
+        }"
       >
-        <slot
-          name="preAppend"
-        />
-      </div>
-      <!--   input part   -->
-      <div
-        class="flex-grow flex items-center"
-      >
-        <slot />
-      </div>
-      <!--   count   -->
-      <div
-        v-if="visibleCount"
-        class="flex-shrink mx-2"
-      >
-        {{ modelValue ? modelValue.toString().length : 0 }} / {{ maxCount }}
-      </div>
-      <div
-        v-if="clearable"
-        class="flex-shrink h-full"
-      >
-        <t-button
-          class="h-full"
-          color="white"
-          text-color="black"
-          @click="onClickClearableButton"
+
+        <span
+          class="block text-sm font-medium text-gray-700 font-bold my-1"
         >
-          <t-material-icon
-            class="rounded-md text-md"
+          <slot
+            name="label"
           >
-            clear
-          </t-material-icon>
-        </t-button>
-      </div>
-      <!--   append   -->
+            {{ label }}
+          </slot>
+        </span>
+      </label>
+      <!--  input part  -->
       <div
-        class="flex-shrink"
+        class="flex items-center input-box focus-within:border-primary-500 border-2"
+        :class="{
+          [`border-2`]: !noRing && !errorStatus,
+          [`border-red-500`]: errorStatus,
+        }"
       >
-        <slot
-          name="append"
-        />
+        <!--   pre-append   -->
+        <div
+          class="flex-shrink"
+        >
+          <slot
+            name="preAppend"
+          />
+        </div>
+        <!--   input part   -->
+        <div
+          class="flex-grow flex items-center"
+        >
+          <slot />
+        </div>
+        <!--   count   -->
+        <div
+          v-if="visibleCount"
+          class="flex-shrink mx-2"
+        >
+          {{ modelValue ? modelValue.toString().length : 0 }} / {{ maxCount }}
+        </div>
+        <div
+          v-if="clearable"
+          class="flex-shrink h-full"
+        >
+          <t-button
+            class="h-full"
+            color="white"
+            text-color="black"
+            @click="onClickClearableButton"
+          >
+            <t-material-icon
+              class="rounded-md text-md"
+            >
+              clear
+            </t-material-icon>
+          </t-button>
+        </div>
+        <!--   append   -->
+        <div
+          class="flex-shrink"
+        >
+          <slot
+            name="append"
+          />
+        </div>
       </div>
-    </div>
-    <!--  error  -->
-    <div
-      v-if="errorStatus"
-      class="text-sm text-red-500 pl-1"
-    >
-      {{ innerErrorMessage }}
+      <!--  error  -->
+      <div
+        v-if="errorStatus"
+        class="text-sm text-red-500 pl-1"
+      >
+        {{ innerErrorMessage }}
+      </div>
     </div>
   </div>
 </template>

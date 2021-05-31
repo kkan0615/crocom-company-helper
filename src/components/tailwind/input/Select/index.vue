@@ -1,6 +1,5 @@
 <template>
   <t-input
-    v-click-outside="closeIsSelectListOpen"
     :label="label"
     :height="height"
     :model-value="modelValue"
@@ -8,12 +7,11 @@
     @click:clearableButton="onClickClearableButton"
   >
     <div
-      class="relative w-full"
+      class="relative w-full select-box"
       role="combobox"
     >
       <div
         class="flex flex-auto flex-wrap"
-        @focusin="isSelectListOpen = true"
       >
         <div
 
@@ -30,8 +28,7 @@
         </div>
       </div>
       <div
-        v-if="isSelectListOpen"
-        class="absolute shadow top-100 bg-white z-40 w-full rounded max-h-select overflow-y-auto h-32"
+        class="absolute shadow top-100 bg-white z-40 w-full rounded max-h-select overflow-y-auto h-32 invisible select-box-menu"
       >
         <div class="flex flex-col w-full">
           <slot
@@ -142,3 +139,10 @@ export default defineComponent({
   }
 })
 </script>
+<style lang="scss" scoped>
+.select-box:focus-within .select-box-menu {
+  opacity:1;
+  transform: translate(0) scale(1);
+  visibility: visible;
+}
+</style>

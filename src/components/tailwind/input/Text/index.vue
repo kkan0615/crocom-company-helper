@@ -2,6 +2,7 @@
   <t-input
     ref="baseInputRef"
     :label="label"
+    :flex="flex"
     :type="type"
     :height="height"
     :model-value="modelValue"
@@ -34,7 +35,7 @@
       :type="type"
       :placeholder="placeholder"
       :value="modelValue"
-      class="text-sm sm:text-sm relative h-full w-full  rounded placeholder-gray-400 focus:border-indigo-400 outline-none px-1"
+      class="text-sm sm:text-sm relative  w-full rounded placeholder-gray-400 focus:border-indigo-400 outline-none px-1"
       @input="onInputValue"
     >
     <!--   append   -->
@@ -49,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, nextTick, ref, useContext } from 'vue'
+import { defineComponent, nextTick, useContext } from 'vue'
 import TInput from '@/components/tailwind/input/Base/index.vue'
 import { inputBoxProps } from '@/components/tailwind/input/Base/types/props'
 import { inputTextProps } from '@/components/tailwind/input/Text/type'
